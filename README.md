@@ -1,5 +1,3 @@
-:warning: **Under construction** :warning:
-
 # hardware/afterlogic-webmail-lite
 
 ![](https://i.imgur.com/a9okDYV.png)
@@ -53,3 +51,7 @@ afterlogic-webmail-lite:
     - mailserver
     - mariadb
 ```
+
+### Installation
+
+https://github.com/hardware/mailserver/wiki/AfterLogic-Webmail-Lite-initial-configuration
