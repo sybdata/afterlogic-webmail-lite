@@ -16,7 +16,6 @@ AfterLogic Webmail Lite is a fast, easy-to-use and open-source webmail front-end
 ### Build-time variables
 
 - **VERSION** : version of AfterLogic Webmail Lite
-- **SHA256_HASH** : SHA256 hash of AfterLogic Webmail Lite archive
 
 ### Ports
 
