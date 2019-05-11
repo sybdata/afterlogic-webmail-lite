@@ -37,7 +37,7 @@ AfterLogic Webmail Lite is a fast, easy-to-use and open-source webmail front-end
 
 ### Docker-compose.yml
 
-```version: '2'
+```version: '3'
 
 services:
   db:
