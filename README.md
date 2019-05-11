@@ -37,18 +37,32 @@ AfterLogic Webmail Lite is a fast, easy-to-use and open-source webmail front-end
 
 ### Docker-compose.yml
 
-```yml
-# Full example :
-# https://github.com/hardware/mailserver/blob/master/docker-compose.sample.yml
+```version: '2'
 
-afterlogic-webmail-lite:
-  image: hardware/afterlogic-webmail-lite
-  container_name: afterlogic-webmail-lite
-  volumes:
-    - /mnt/docker/afterlogic-webmail-lite:/afterlogic-webmail-lite/data
-  depends_on:
-    - mailserver
-    - mariadb
+services:
+  db:
+    image: mariadb
+    command: --transaction-isolation=READ-COMMITTED --binlog-format=ROW
+    restart: always
+    environment:
+      - MYSQL_ROOT_PASSWORD=afterlogic
+      - MYSQL_PASSWORD=afterlogic
+      - MYSQL_DATABASE=afterlogic
+      - MYSQL_USER=afterlogic
+
+  awl:
+    image: hardware/afterlogic-webmail-lite
+    environment:
+      - UPLOAD_MAX_SIZE=10G
+      - MEMORY_LIMIT=256M
+    depends_on:
+      - db
+    ports:
+      - "8888:8888"
+    volumes:
+      - /opt/afterlogic-webmail-lite:/afterlogic-webmail-lite/data
+    restart: always
+
 ```
 
 ### Installation
